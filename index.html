@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAYAW STUDY TOOL</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <button id="about-button" class="sidebar-button">About</button>
+            <button id="contact-button" class="sidebar-button">Contact</button>
+            <div id="avatar" class="user-avatar"></div>
+            <button id="settings-button" class="sidebar-button">Settings</button>
+        </div>
+
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <h1 class="title">BAYAW<br>STUDY<br>TOOL</h1>
+            <button id="start-quiz" class="button">Quiz</button>
+            <button id="start-planner" class="button">Planner</button>
+        </div>
+
+        <!-- Topics Page -->
+        <div id="topics-page" class="page">
+            <button id="back-button-topics" class="button"><span class="arrow">&larr;</span></button>
+            <h1>Select a Topic</h1>
+            <div id="topics-list" class="scrollable">
+                <button class="topic-button" data-topic="agripower">Agricultural Power</button>
+                <button class="topic-button" data-topic="agrimachinery">Agricultural Machinery</button>
+                <button class="topic-button" data-topic="abelaw">ABE Law</button>
+                <button class="topic-button" data-topic="agricstructures">Agricultural Structures</button>
+                <!-- Add more topics as needed -->
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="page">
+            <button id="back-button-quiz" class="button"><span class="arrow">&larr;</span></button>
+            <h2 id="topic-title"></h2>
+            <div id="timer"><span id="time">15</span>s</div>
+            <div id="question-container">
+                <div id="question-number">Question 1</div>
+                <div id="question" class="question-text">Question Text</div>
+                <div id="choices">
+                    <button class="choice-button" data-choice="0">Choice 1</button>
+                    <button class="choice-button" data-choice="1">Choice 2</button>
+                    <button class="choice-button" data-choice="2">Choice 3</button>
+                    <button class="choice-button" data-choice="3">Choice 4</button>
+                </div>
+            </div>
+            <div id="score">Score: <span id="score-value">0</span></div>
+        </div>
+
+        <!-- Completion Dialog -->
+        <div id="completion-dialog" class="dialog hidden">
+            <div class="dialog-content">
+                <h2>You completed the Quiz!</h2>
+                <p>Your score: <span id="final-score" class="bold">0</span></p>
+                <button id="close-dialog" class="button">Close</button>
+            </div>
+        </div>
+
+        <!-- About Dialog Box -->
+        <div id="about-dialog" class="dialog hidden">
+            <div class="dialog-content">
+                <span id="close-about-dialog" class="close">&times;</span>
+                <h2>About Us</h2>
+                <p>This app is a passion project by Jhun, designed to help him recall important terms and definitions for the upcoming Licensure Examination for Agricultural and Biosystems Engineering. The app provides a fun and interactive way to test knowledge and prepare for the exam by offering various quizzes and features to enhance learning and retention.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <audio id="correct-sound" src="src/audio/correct-choice.wav"></audio>
+    <audio id="incorrect-sound" src="src/audio/incorrect-choice.wav"></audio>
+    <audio id="confetti-sound" src="src/audio/confetti.wav"></audio>
+</body>
+</html>

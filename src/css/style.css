@@ -1,0 +1,227 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #d4f4dd; /* Light background */
+    color: #4b1d3f; /* Text color for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#app {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative; /* Relative positioning to contain absolutely positioned children */
+    background-color: rgba(255, 255, 255, 0.7); /* Light background */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.title {
+    font-size: 2em;
+    line-height: 1.2em;
+    margin-top: 0;
+    color: #4b1d3f; /* Adjusted for contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button, .choice-button, .sidebar-button, .close-dialog {
+    background-color: #ff9f1c; /* New color */
+    color: #ffffff; /* Adjusted for readability */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover, .choice-button:hover, .sidebar-button:hover {
+    background-color: #e26d5c; /* New hover color */
+    transform: translateY(-2px);
+}
+
+.topic-button {
+    background-color: #ff9f1c;
+    display: block;
+    color: white; /* Adjust text color for better contrast */
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.topic-button:hover {
+    background-color: #e26d5c; /* Example hover effect */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.topic-button:active {
+    transform: scale(0.95); /* Slightly decrease size when clicked */
+}
+
+.choice-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.choice-button {
+    font-size: 1.2em;
+}
+
+.choice-button.correct {
+    background-color: #b0db43; /* New correct choice color */
+}
+
+.choice-button.incorrect {
+    background-color: #d62246; /* New incorrect choice color */
+}
+
+#timer, #score {
+    font-size: 1.5em;
+    color: #4b1d3f; /* Text color */
+}
+
+#timer {
+    position: absolute; /* Positioning within the parent container */
+    top: 10px;
+    right: 10px; /* Move to the top-right corner */
+    font-size: 1.5em;
+}
+
+#timer span {
+    font-size: 1.5em;
+}
+
+.question-text {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #4b1d3f; /* Text color */
+}
+
+#topic-title {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #d62246; /* Text color */
+}
+
+#sidebar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: transparent; /* Background color */
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+#sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar-button {
+    display: block;
+    margin: 5px 0;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#back-button-topics {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    background: none;
+    color: #4b1d3f; /* Text color */
+    font-size: 2em;
+    box-shadow: none;
+}
+
+#back-button-quiz {
+    position: absolute;
+    top: -30px;
+    left: 5px;
+    background: none;
+    color: #4b1d3f; /* Text color */
+    font-size: 2em;
+    box-shadow: none;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 1.5em;
+    vertical-align: top;
+    color: #4b1d3f; /* Text color */
+}
+
+#topics-page {
+    position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensure it fills the viewport height */
+    background-color: #ffffff; /* Background color */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 10;
+}
+
+#topics-list {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.dialog-content h2 {
+    margin: 0;
+}
+
+.dialog-content .bold {
+    font-weight: bold;
+}
